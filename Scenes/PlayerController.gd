@@ -12,7 +12,7 @@ func kill(other: Node2D):
 	set_meta("canmove", false)
 
 func get_data():
-	return [position, rotation]
+	return [position, rotation, velocity]
 
 func _physics_process(delta):
 	var dy = Input.get_axis("ui_down", "ui_up")
@@ -33,6 +33,11 @@ func _physics_process(delta):
 	velocity = movement
 	
 	look_at(position + velocity)
+	
+	if movement.length() != 0:
+		$GFXContainer/GFX.play("default")
+	else:
+		$GFXContainer/GFX.stop()
 	
 	# Move the character
 	move_and_slide()

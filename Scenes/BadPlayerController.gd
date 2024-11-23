@@ -3,7 +3,7 @@ extends StaticBody2D
 var player_positions = []
 var player_node = null
 
-var delay = 150
+var delay = 1.5*60
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -24,5 +24,9 @@ func _process(delta: float) -> void:
 	if player_positions.size() == delay:
 		var info = player_positions[0]
 		position = info[0]
-		$Sprite2D.rotation = info[1]
+		$GFX.rotation = info[1]
+		if info[2].length() != 0:
+			$GFX.play("default")
+		else:
+			$GFX.stop()
 	pass
