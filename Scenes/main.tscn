@@ -144,7 +144,7 @@ script = ExtResource("1_s17gv")
 metadata/alive = true
 metadata/moving = false
 metadata/canmove = true
-metadata/keys = 3
+metadata/keys = 0
 
 [node name="GFXContainer" type="Node2D" parent="Player"]
 
@@ -210,6 +210,7 @@ tile_map_data = PackedByteArray("AAAAAAwAAAAAAAAAAAAEAAAAAAAAAAAAAAADAAAAAAAAAAA
 tile_set = SubResource("TileSet_u1sbv")
 
 [node name="Menu" type="CanvasLayer" parent="."]
+follow_viewport_scale = 0.2
 script = ExtResource("8_cbvhn")
 
 [node name="ColorRect" type="TextureRect" parent="Menu"]
