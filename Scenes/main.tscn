@@ -136,6 +136,7 @@ shape = SubResource("CircleShape2D_dloer")
 zoom = Vector2(8.96, 8.96)
 
 [node name="BadPlayer" type="StaticBody2D" parent="."]
+modulate = Color(1, 1, 1, 0.886275)
 position = Vector2(91, 208)
 script = ExtResource("3_o85bq")
 metadata/Player = NodePath("../Player")
@@ -219,6 +220,7 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 border_color = Color(0, 0.607896, 0.645592, 1)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Menu"]
