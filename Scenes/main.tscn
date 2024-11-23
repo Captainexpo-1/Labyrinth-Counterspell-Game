@@ -142,7 +142,7 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D" parent="."]
 texture_filter = 1
-position = Vector2(110, 208)
+position = Vector2(101, 212)
 script = ExtResource("1_s17gv")
 metadata/alive = true
 metadata/moving = false
@@ -174,7 +174,7 @@ zoom = Vector2(8.96, 8.96)
 
 [node name="BadPlayer" type="StaticBody2D" parent="."]
 modulate = Color(1, 1, 1, 0.886275)
-position = Vector2(91, 208)
+position = Vector2(102, 262)
 script = ExtResource("3_o85bq")
 metadata/Player = NodePath("../Player")
 metadata/Following = false
@@ -197,6 +197,9 @@ scale = Vector2(5.24, 5.24)
 position = Vector2(-5.96046e-08, 0)
 shape = SubResource("CircleShape2D_p2the")
 
+[node name="Timer" type="Timer" parent="BadPlayer"]
+wait_time = 5.0
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_x4aj4")
 autoplay = true
@@ -213,6 +216,7 @@ tile_map_data = PackedByteArray("AAAAAAwAAAAAAAAAAAAEAAAAAAAAAAAAAAADAAAAAAAAAAA
 tile_set = SubResource("TileSet_u1sbv")
 
 [node name="Menu" type="CanvasLayer" parent="."]
+visible = false
 follow_viewport_scale = 0.2
 script = ExtResource("8_cbvhn")
 
@@ -221,10 +225,6 @@ texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -12.0
-offset_top = 17.0
-offset_right = -12.0
-offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("9_krec2")
