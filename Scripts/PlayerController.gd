@@ -48,6 +48,7 @@ func _physics_process(delta):
 	if get_meta("keys") >= 3 and position.y < 0 and not done: 
 		$"../BadPlayer".queue_free()
 		done = true
+		$"../WinScreen".win()
 	move_and_slide()
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://cdj5ocoun602x"]
+[gd_scene load_steps=36 format=4 uid="uid://cdj5ocoun602x"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerController.gd" id="1_s17gv"]
 [ext_resource type="Texture2D" uid="uid://djnsb8qmtvksp" path="res://Sprites/mc_sheet.png" id="2_o2fuc"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://Scripts/door.gd" id="13_g5f20"]
 [ext_resource type="Texture2D" uid="uid://cx4bmcrah2fcy" path="res://Sprites/door.png" id="14_jd4k2"]
 [ext_resource type="AudioStream" uid="uid://vw8o3aybbrwk" path="res://key_get.wav" id="15_xso0g"]
+[ext_resource type="Script" path="res://Scenes/WinScreen.gd" id="16_xjyc6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_57jt3"]
 atlas = ExtResource("2_o2fuc")
@@ -318,7 +319,7 @@ stream = ExtResource("15_xso0g")
 volume_db = -2.67
 
 [node name="WinScreen" type="CanvasLayer" parent="."]
-visible = false
+script = ExtResource("16_xjyc6")
 
 [node name="TextureRect" type="TextureRect" parent="WinScreen"]
 texture_filter = 1
@@ -355,8 +356,13 @@ theme_override_font_sizes/normal_font_size = 25
 bbcode_enabled = true
 text = "[i]Live in the present moment :)[i]"
 
+[node name="Timer" type="Timer" parent="WinScreen"]
+wait_time = 5.0
+one_shot = true
+
 [connection signal="area_entered" from="Player/Area2D" to="Player" method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="Player/Area2D" to="BadPlayer" method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="BadPlayer/Area2D" to="BadPlayer" method="_on_area_2d_area_entered"]
 [connection signal="finished" from="AudioStreamPlayer2D" to="AudioStreamPlayer2D" method="_on_finished"]
 [connection signal="gui_input" from="Menu/ColorRect/ColorRect" to="Menu" method="_on_color_rect_gui_input"]
+[connection signal="timeout" from="WinScreen/Timer" to="WinScreen" method="_on_timer_timeout"]
