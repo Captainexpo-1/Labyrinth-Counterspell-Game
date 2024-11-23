@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://cdj5ocoun602x"]
+[gd_scene load_steps=38 format=4 uid="uid://cdj5ocoun602x"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerController.gd" id="1_s17gv"]
 [ext_resource type="Texture2D" uid="uid://djnsb8qmtvksp" path="res://Sprites/mc_sheet.png" id="2_o2fuc"]
@@ -14,6 +14,7 @@
 [ext_resource type="FontFile" uid="uid://b213mix31ovv5" path="res://Sprites/Tourney-Italic-VariableFont_wdth,wght.ttf" id="10_erlvk"]
 [ext_resource type="Script" path="res://Scripts/door.gd" id="13_g5f20"]
 [ext_resource type="Texture2D" uid="uid://cx4bmcrah2fcy" path="res://Sprites/door.png" id="14_jd4k2"]
+[ext_resource type="Script" path="res://Scenes/point_light_2d.gd" id="15_0foc4"]
 [ext_resource type="AudioStream" uid="uid://vw8o3aybbrwk" path="res://key_get.wav" id="15_xso0g"]
 [ext_resource type="Texture2D" uid="uid://cd5qfscfeiag1" path="res://Sprites/winscreen.png" id="16_30k50"]
 [ext_resource type="Script" path="res://Scenes/WinScreen.gd" id="16_xjyc6"]
@@ -195,6 +196,7 @@ scale = Vector2(5.24, 5.24)
 
 [node name="PlayerCollider" type="CollisionShape2D" parent="BadPlayer/Area2D"]
 position = Vector2(-5.96046e-08, 0)
+scale = Vector2(0.9, 0.9)
 shape = SubResource("CircleShape2D_p2the")
 
 [node name="Timer" type="Timer" parent="BadPlayer"]
@@ -228,6 +230,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("9_krec2")
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="Menu/ColorRect"]
 layout_mode = 1
@@ -239,6 +242,7 @@ offset_top = 345.0
 offset_right = -502.0
 offset_bottom = -221.0
 color = Color(0.407843, 0.25098, 0.466667, 0)
+metadata/_edit_use_anchors_ = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Menu/ColorRect/ColorRect"]
 layout_mode = 1
@@ -255,6 +259,7 @@ theme_override_fonts/normal_font = ExtResource("9_rw4r3")
 theme_override_font_sizes/bold_italics_font_size = 60
 theme_override_font_sizes/normal_font_size = 60
 text = "Play"
+metadata/_edit_use_anchors_ = true
 
 [node name="ReferenceRect" type="ReferenceRect" parent="Menu/ColorRect/ColorRect"]
 layout_mode = 1
@@ -266,21 +271,55 @@ offset_top = -20.0
 offset_right = 24.0
 offset_bottom = -20.0
 mouse_filter = 2
-border_color = Color(0, 0.607896, 0.645592, 1)
+border_color = Color(0, 0.607843, 0.647059, 0)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="Menu/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.264757
+anchor_top = 0.00308642
+anchor_right = 0.797743
+anchor_bottom = 1.11883
+offset_left = 463.0
+offset_top = 345.0
+offset_right = -502.0
+offset_bottom = -221.0
+color = Color(0.14902, 0.12549, 0.227451, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Menu/ColorRect/ColorRect2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.28185
+anchor_top = 0.0828026
+anchor_right = -0.996703
+anchor_bottom = 0.605096
+offset_left = 352.0
+offset_top = -14.0
+offset_right = 520.146
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 20
+text = "Naviage the labyrinth and collect all three keys to unlock the door while avoiding your shadow self!"
+metadata/_edit_use_anchors_ = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Menu"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 257.0
-offset_top = 104.0
-offset_right = -244.0
-offset_bottom = -362.0
+offset_left = 269.0
+offset_top = 87.0
+offset_right = -232.0
+offset_bottom = -379.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("9_rw4r3")
 theme_override_font_sizes/normal_font_size = 120
 text = "Labyrinth"
+metadata/_edit_use_anchors_ = true
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Menu"]
 anchors_preset = -1
@@ -288,14 +327,15 @@ anchor_left = 0.494
 anchor_top = 0.406
 anchor_right = 0.494
 anchor_bottom = 0.406
-offset_left = -375.088
-offset_top = -20.088
-offset_right = 381.912
-offset_bottom = 42.912
+offset_left = -363.088
+offset_top = -37.088
+offset_right = 393.912
+offset_bottom = 25.912
 theme_override_fonts/italics_font = ExtResource("10_erlvk")
 theme_override_font_sizes/italics_font_size = 40
 bbcode_enabled = true
 text = "[i]Your past always catches up to you[i]"
+metadata/_edit_use_anchors_ = true
 
 [node name="Key" parent="." instance=ExtResource("8_lc761")]
 position = Vector2(20, 180)
@@ -321,6 +361,14 @@ texture_filter = 1
 position = Vector2(-6.02007e-06, -1.19209e-07)
 scale = Vector2(3, 2)
 sprite_frames = SubResource("SpriteFrames_kob3w")
+
+[node name="PointLight2D" type="PointLight2D" parent="Door/AnimatedSprite2D"]
+position = Vector2(3.37884e-06, 0.75)
+scale = Vector2(12.5, 2.86458)
+energy = 2.99
+texture = ExtResource("14_jd4k2")
+texture_scale = 0.08
+script = ExtResource("15_0foc4")
 
 [node name="KeyPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_xso0g")
@@ -375,4 +423,5 @@ one_shot = true
 [connection signal="area_entered" from="BadPlayer/Area2D" to="BadPlayer" method="_on_area_2d_area_entered"]
 [connection signal="finished" from="AudioStreamPlayer2D" to="AudioStreamPlayer2D" method="_on_finished"]
 [connection signal="gui_input" from="Menu/ColorRect/ColorRect" to="Menu" method="_on_color_rect_gui_input"]
+[connection signal="gui_input" from="Menu/ColorRect/ColorRect2" to="Menu" method="_on_color_rect_gui_input"]
 [connection signal="timeout" from="WinScreen/Timer" to="WinScreen" method="_on_timer_timeout"]
