@@ -28,5 +28,6 @@ func set_next_state():
 
 func _on_color_rect_gui_input(event):
 	if event is InputEventMouseButton:
-		set_next_state()
-		$"../Player".revive()
+		if event.pressed:
+			set_next_state()
+			$"../Player".revive()
