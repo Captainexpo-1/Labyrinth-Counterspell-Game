@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://cdj5ocoun602x"]
+[gd_scene load_steps=37 format=4 uid="uid://cdj5ocoun602x"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerController.gd" id="1_s17gv"]
 [ext_resource type="Texture2D" uid="uid://djnsb8qmtvksp" path="res://Sprites/mc_sheet.png" id="2_o2fuc"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cx4bmcrah2fcy" path="res://Sprites/door.png" id="14_jd4k2"]
 [ext_resource type="AudioStream" uid="uid://vw8o3aybbrwk" path="res://key_get.wav" id="15_xso0g"]
 [ext_resource type="Texture2D" uid="uid://cd5qfscfeiag1" path="res://Sprites/winscreen.png" id="16_30k50"]
+[ext_resource type="Script" path="res://Scenes/WinScreen.gd" id="16_xjyc6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_57jt3"]
 atlas = ExtResource("2_o2fuc")
@@ -212,7 +213,6 @@ tile_map_data = PackedByteArray("AAAAAAwAAAAAAAAAAAAEAAAAAAAAAAAAAAADAAAAAAAAAAA
 tile_set = SubResource("TileSet_u1sbv")
 
 [node name="Menu" type="CanvasLayer" parent="."]
-visible = false
 follow_viewport_scale = 0.2
 script = ExtResource("8_cbvhn")
 
@@ -221,6 +221,10 @@ texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -12.0
+offset_top = 17.0
+offset_right = -12.0
+offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("9_krec2")
@@ -234,16 +238,16 @@ offset_left = 463.0
 offset_top = 345.0
 offset_right = -502.0
 offset_bottom = -221.0
-color = Color(0.407843, 0.25098, 0.466667, 1)
+color = Color(0.407843, 0.25098, 0.466667, 0)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Menu/ColorRect/ColorRect"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.042
-offset_left = 20.0
-offset_top = 7.0
-offset_right = 188.146
-offset_bottom = 77.0
+offset_left = 47.0
+offset_top = -12.0
+offset_right = 215.146
+offset_bottom = 58.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -257,6 +261,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -20.0
+offset_right = 24.0
+offset_bottom = -20.0
 mouse_filter = 2
 border_color = Color(0, 0.607896, 0.645592, 1)
 
@@ -319,6 +327,7 @@ stream = ExtResource("15_xso0g")
 volume_db = -2.67
 
 [node name="WinScreen" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("16_xjyc6")
 
 [node name="TextureRect" type="TextureRect" parent="WinScreen"]
