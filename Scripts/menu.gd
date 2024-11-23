@@ -14,7 +14,6 @@ func _process(delta):
 	if get_current_state() == states.PAUSED:
 		self.show()
 	else:
-		$"../BadPlayer".set_meta("Following", true)
 		self.hide()
 	
 func get_current_state():
@@ -23,9 +22,10 @@ func get_current_state():
 func set_next_state():
 	if get_current_state() == states.PAUSED:
 		self.current_state = states.PLAYING
+		$"../BadPlayer".set_meta("Following", true)
 	else:
 		self.current_state = states.PAUSED
-
+		$"../BadPlayer".set_meta("Following", false)
 
 func _on_color_rect_gui_input(event):
 	if event is InputEventMouseButton:

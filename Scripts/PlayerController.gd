@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var speed = 45  # move speed in pixels/sec
 var rotation_speed = 4  # turning speed in radians/sec
-
+var done = false
 
 func wrap_angle(angle: float) -> float:
 	return fmod(angle + PI, TAU) - PI
@@ -45,6 +45,9 @@ func _physics_process(delta):
 		$GFXContainer/GFX.stop()
 	
 	# Move the character
+	if get_meta("keys") >= 3 and position.y < 0 and not done: 
+		$"../BadPlayer".queue_free()
+		done = true
 	move_and_slide()
 
 
