@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://djnsb8qmtvksp" path="res://Sprites/mc_sheet.png" id="2_o2fuc"]
 [ext_resource type="Script" path="res://Scenes/BadPlayerController.gd" id="3_o85bq"]
 [ext_resource type="Texture2D" uid="uid://bannrjgg0an6t" path="res://Sprites/enemy_sheet.png" id="4_q5db6"]
-[ext_resource type="AudioStream" uid="uid://u20qj2wuwuqe" path="res://Music/counterspell.wav" id="5_x4aj4"]
+[ext_resource type="AudioStream" path="res://Music/counterspell.wav" id="5_x4aj4"]
 [ext_resource type="Script" path="res://Scenes/music.gd" id="6_tk0lp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_57jt3"]
