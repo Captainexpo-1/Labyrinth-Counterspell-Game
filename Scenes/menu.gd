@@ -14,6 +14,7 @@ func _process(delta):
 	if get_current_state() == states.PAUSED:
 		self.show()
 	else:
+		$"../BadPlayer".set_meta("Following", true)
 		self.hide()
 	
 func get_current_state():
