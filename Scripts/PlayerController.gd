@@ -10,6 +10,10 @@ func wrap_angle(angle: float) -> float:
 func kill(other: Node2D):
 	set_meta("alive", false)
 	set_meta("canmove", false)
+	
+func revive():
+	set_meta("alive", true)
+	set_meta("canmove", true)
 
 func get_data():
 	return [position, rotation, velocity]
