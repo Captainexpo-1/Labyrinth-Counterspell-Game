@@ -163,7 +163,6 @@ position = Vector2(115, 66)
 zoom = Vector2(5, 5)
 
 [node name="Menu" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource("8_cbvhn")
 
 [node name="ColorRect" type="ColorRect" parent="Menu"]
@@ -191,7 +190,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 42.0
 offset_top = 18.0
-offset_right = 16.0
+offset_right = -30.0
 offset_bottom = -12.0
 grow_horizontal = 2
 grow_vertical = 2
