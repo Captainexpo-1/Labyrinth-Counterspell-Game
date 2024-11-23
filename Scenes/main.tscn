@@ -1,9 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdj5ocoun602x"]
+[gd_scene load_steps=6 format=3 uid="uid://cdj5ocoun602x"]
 
 [ext_resource type="Script" path="res://Scenes/PlayerController.gd" id="1_s17gv"]
 [ext_resource type="Texture2D" uid="uid://cxepsknjyl63a" path="res://icon.svg" id="2_hkc2s"]
+[ext_resource type="Script" path="res://Scenes/BadPlayerController.gd" id="3_o85bq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ibls4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e2wdg"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -11,10 +14,20 @@
 script = ExtResource("1_s17gv")
 metadata/alive = true
 metadata/moving = false
-metadata/canmove = false
+metadata/canmove = true
 
 [node name="PlayerCollider" type="CollisionShape2D" parent="Player"]
 shape = SubResource("CircleShape2D_ibls4")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = ExtResource("2_hkc2s")
+
+[node name="BadPlayer" type="StaticBody2D" parent="."]
+script = ExtResource("3_o85bq")
+metadata/Player = NodePath("../Player")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BadPlayer"]
+shape = SubResource("CircleShape2D_e2wdg")
+
+[node name="Sprite2D" type="Sprite2D" parent="BadPlayer"]
 texture = ExtResource("2_hkc2s")

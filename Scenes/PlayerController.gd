@@ -11,6 +11,9 @@ func kill(other: Node2D):
 	set_meta("alive", false)
 	set_meta("canmove", false)
 
+func get_data():
+	return [position, rotation]
+
 func _physics_process(delta):
 	var dy = Input.get_axis("ui_down", "ui_up")
 	var dx = Input.get_axis("ui_left", "ui_right")
@@ -26,11 +29,10 @@ func _physics_process(delta):
 	# Normalize movement vector if its length exceeds 1
 	if movement.length() > 1:
 		movement = movement.normalized() * speed
-		
-	print(get_meta("canmove"))
-		
 	
 	velocity = movement
+	
+	look_at(position + velocity)
 	
 	# Move the character
 	move_and_slide()
