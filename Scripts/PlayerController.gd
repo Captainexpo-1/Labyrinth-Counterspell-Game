@@ -44,4 +44,5 @@ func _physics_process(delta):
 		$GFXContainer/GFX.stop()
 	
 	# Move the character
-	move_and_slide()
+	if self.position.x > 0 and self.position.x < 1152 and self.position.y > 0 and self.position.y < 648:
+		move_and_slide()

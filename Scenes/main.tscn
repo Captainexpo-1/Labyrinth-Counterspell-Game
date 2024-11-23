@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://cdj5ocoun602x"]
+[gd_scene load_steps=21 format=4 uid="uid://cdj5ocoun602x"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerController.gd" id="1_s17gv"]
 [ext_resource type="Texture2D" uid="uid://djnsb8qmtvksp" path="res://Sprites/mc_sheet.png" id="2_o2fuc"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://u20qj2wuwuqe" path="res://Music/counterspell.wav" id="5_x4aj4"]
 [ext_resource type="Script" path="res://Scripts/music.gd" id="6_tk0lp"]
 [ext_resource type="Texture2D" uid="uid://bdqt1h0l75x4r" path="res://Sprites/walltile.png" id="7_5sg7l"]
+[ext_resource type="Script" path="res://Scenes/menu.gd" id="8_cbvhn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_57jt3"]
 atlas = ExtResource("2_o2fuc")
@@ -161,6 +162,57 @@ tile_set = SubResource("TileSet_u1sbv")
 position = Vector2(115, 66)
 zoom = Vector2(5, 5)
 
+[node name="Menu" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("8_cbvhn")
+
+[node name="ColorRect" type="ColorRect" parent="Menu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.458824, 0.603922, 0.670588, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Menu/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 490.0
+offset_top = 384.0
+offset_right = -476.0
+offset_bottom = -174.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Menu/ColorRect/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 42.0
+offset_top = 18.0
+offset_right = 16.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/bold_italics_font_size = 60
+theme_override_font_sizes/normal_font_size = 40
+text = "Play"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Menu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 438.0
+offset_top = 170.0
+offset_right = -417.0
+offset_bottom = -381.0
+theme_override_font_sizes/normal_font_size = 60
+text = "Labyrinth"
+
 [connection signal="area_entered" from="Player/Area2D" to="BadPlayer" method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="BadPlayer/Area2D" to="BadPlayer" method="_on_area_2d_area_entered"]
 [connection signal="finished" from="AudioStreamPlayer2D" to="AudioStreamPlayer2D" method="_on_finished"]
+[connection signal="gui_input" from="Menu/ColorRect/ColorRect" to="Menu" method="_on_color_rect_gui_input"]
