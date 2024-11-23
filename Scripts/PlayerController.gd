@@ -54,4 +54,5 @@ func _physics_process(delta):
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.get_parent() is StaticBody2D:
 		set_meta("keys", get_meta("keys") + 1)
+		$"../KeyPlayer".play()
 		area.get_parent().call_deferred("queue_free")

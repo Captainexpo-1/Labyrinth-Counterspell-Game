@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://cdj5ocoun602x"]
+[gd_scene load_steps=35 format=4 uid="uid://cdj5ocoun602x"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerController.gd" id="1_s17gv"]
 [ext_resource type="Texture2D" uid="uid://djnsb8qmtvksp" path="res://Sprites/mc_sheet.png" id="2_o2fuc"]
@@ -14,6 +14,7 @@
 [ext_resource type="FontFile" uid="uid://b213mix31ovv5" path="res://Sprites/Tourney-Italic-VariableFont_wdth,wght.ttf" id="10_erlvk"]
 [ext_resource type="Script" path="res://Scripts/door.gd" id="13_g5f20"]
 [ext_resource type="Texture2D" uid="uid://cx4bmcrah2fcy" path="res://Sprites/door.png" id="14_jd4k2"]
+[ext_resource type="AudioStream" uid="uid://vw8o3aybbrwk" path="res://key_get.wav" id="15_xso0g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_57jt3"]
 atlas = ExtResource("2_o2fuc")
@@ -310,6 +311,10 @@ texture_filter = 1
 position = Vector2(-6.02007e-06, -1.19209e-07)
 scale = Vector2(3, 2)
 sprite_frames = SubResource("SpriteFrames_kob3w")
+
+[node name="KeyPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_xso0g")
+volume_db = -2.67
 
 [connection signal="area_entered" from="Player/Area2D" to="Player" method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="Player/Area2D" to="BadPlayer" method="_on_area_2d_area_entered"]
