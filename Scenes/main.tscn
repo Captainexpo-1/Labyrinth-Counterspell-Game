@@ -267,7 +267,39 @@ offset_top = -20.0
 offset_right = 24.0
 offset_bottom = -20.0
 mouse_filter = 2
-border_color = Color(0, 0.607896, 0.645592, 1)
+border_color = Color(0, 0.607843, 0.647059, 0)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="Menu/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.264757
+anchor_top = 0.00308642
+anchor_right = 0.797743
+anchor_bottom = 1.11883
+offset_left = 463.0
+offset_top = 345.0
+offset_right = -502.0
+offset_bottom = -221.0
+color = Color(0.14902, 0.12549, 0.227451, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Menu/ColorRect/ColorRect2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.28185
+anchor_top = 0.0828026
+anchor_right = -0.996703
+anchor_bottom = 0.605096
+offset_left = 352.0
+offset_top = -14.0
+offset_right = 520.146
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 20
+text = "Naviage the labyrinth and collect all three keys to unlock the door while avoiding your shadow self!"
 metadata/_edit_use_anchors_ = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Menu"]
@@ -387,4 +419,5 @@ one_shot = true
 [connection signal="area_entered" from="BadPlayer/Area2D" to="BadPlayer" method="_on_area_2d_area_entered"]
 [connection signal="finished" from="AudioStreamPlayer2D" to="AudioStreamPlayer2D" method="_on_finished"]
 [connection signal="gui_input" from="Menu/ColorRect/ColorRect" to="Menu" method="_on_color_rect_gui_input"]
+[connection signal="gui_input" from="Menu/ColorRect/ColorRect2" to="Menu" method="_on_color_rect_gui_input"]
 [connection signal="timeout" from="WinScreen/Timer" to="WinScreen" method="_on_timer_timeout"]
