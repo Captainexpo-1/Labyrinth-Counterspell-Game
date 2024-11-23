@@ -112,7 +112,6 @@ scale = Vector2(5.24, 5.24)
 
 [node name="PlayerCollider" type="CollisionShape2D" parent="Player/Area2D"]
 position = Vector2(-6.25621e-08, 3.98123e-08)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_rp4dj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
@@ -141,7 +140,6 @@ scale = Vector2(5.24, 5.24)
 
 [node name="PlayerCollider" type="CollisionShape2D" parent="BadPlayer/Area2D"]
 position = Vector2(-6.25621e-08, 3.98123e-08)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_rp4dj")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
@@ -153,7 +151,7 @@ script = ExtResource("6_tk0lp")
 tile_set = SubResource("TileSet_u1sbv")
 format = 2
 
-[node name="Layer0" type="TileMapLayer" parent="TileMap"]
+[node name="Layer1" type="TileMapLayer" parent="TileMap"]
 texture_filter = 1
 use_parent_material = true
 tile_map_data = PackedByteArray("AAAAAAwAAAAAAAAAAAABAAwAAAAAAAAAAAACAAwAAAAAAAAAAAADAAwAAAAAAAAAAAAEAAwAAAAAAAAAAAAFAAwAAAAAAAAAAAAGAAwAAAAAAAAAAAAHAAwAAAAAAAAAAAAIAAwAAAAAAAAAAAAJAAsAAAAAAAAAAAAKAAsAAAAAAAAAAAALAAsAAAAAAAAAAAAMAAsAAAAAAAAAAAAMAAoAAAAAAAAAAAAMAAkAAAAAAAAAAAANAAkAAAAAAAAAAAA=")
