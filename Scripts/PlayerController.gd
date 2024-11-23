@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = 400  # move speed in pixels/sec
+var speed = 45  # move speed in pixels/sec
 var rotation_speed = 4  # turning speed in radians/sec
 
 
