@@ -25,6 +25,7 @@ func _physics_process(delta):
 	if not get_meta("canmove"):
 		dy = 0
 		dx = 0
+		
 	
 	# Calculate movement vector
 	var movement = (Vector2.RIGHT * dx - Vector2.UP * -dy) * speed
@@ -46,3 +47,9 @@ func _physics_process(delta):
 	# Move the character
 	if self.position.x > 0 and self.position.x < 1152 and self.position.y > 0 and self.position.y < 648:
 		move_and_slide()
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.get_parent() is StaticBody2D:
+		set_meta("keys", get_meta("keys") + 1)
+		area.get_parent().call_deferred("queue_free")
