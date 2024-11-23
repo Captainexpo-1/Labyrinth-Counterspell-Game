@@ -140,5 +140,37 @@ stream = ExtResource("5_x4aj4")
 autoplay = true
 script = ExtResource("6_tk0lp")
 
+[node name="Menu" type="CanvasLayer" parent="AudioStreamPlayer2D"]
+
+[node name="ColorRect" type="ColorRect" parent="AudioStreamPlayer2D/Menu"]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.458824, 0.603922, 0.670588, 1)
+
+[node name="ColorRect" type="ColorRect" parent="AudioStreamPlayer2D/Menu/ColorRect"]
+layout_mode = 0
+offset_left = 396.0
+offset_top = 339.0
+offset_right = 722.0
+offset_bottom = 426.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AudioStreamPlayer2D/Menu/ColorRect/ColorRect"]
+layout_mode = 0
+offset_left = 107.0
+offset_top = 8.0
+offset_right = 264.0
+offset_bottom = 77.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 50
+text = "Play"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AudioStreamPlayer2D/Menu"]
+offset_left = 284.0
+offset_top = 82.0
+offset_right = 989.0
+offset_bottom = 301.0
+theme_override_font_sizes/normal_font_size = 75
+text = "Welcome to {GAMENAME}"
+
 [connection signal="area_entered" from="BadPlayer/Area2D" to="BadPlayer" method="_on_area_2d_area_entered"]
 [connection signal="finished" from="AudioStreamPlayer2D" to="AudioStreamPlayer2D" method="_on_finished"]
