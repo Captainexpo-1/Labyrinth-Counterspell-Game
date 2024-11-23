@@ -16,6 +16,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if not get_meta("Following"): return
+	
 	player_positions.push_back(player_node.get_data())
 	
 	while player_positions.size() > delay: 

@@ -94,7 +94,7 @@ sources/0 = SubResource("TileSetAtlasSource_ex50u")
 
 [node name="Player" type="CharacterBody2D" parent="."]
 texture_filter = 1
-position = Vector2(55, 69)
+position = Vector2(110, 208)
 script = ExtResource("1_s17gv")
 metadata/alive = true
 metadata/moving = false
@@ -121,9 +121,10 @@ scale = Vector2(4.73, 4.73)
 shape = SubResource("RectangleShape2D_wq4dr")
 
 [node name="BadPlayer" type="StaticBody2D" parent="."]
-position = Vector2(36, 69)
+position = Vector2(91, 208)
 script = ExtResource("3_o85bq")
 metadata/Player = NodePath("../Player")
+metadata/Following = false
 
 [node name="GFX" type="AnimatedSprite2D" parent="BadPlayer"]
 texture_filter = 1
@@ -163,6 +164,7 @@ position = Vector2(115, 66)
 zoom = Vector2(5, 5)
 
 [node name="Menu" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("8_cbvhn")
 
 [node name="ColorRect" type="ColorRect" parent="Menu"]
