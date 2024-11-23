@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://cdj5ocoun602x"]
+[gd_scene load_steps=36 format=4 uid="uid://cdj5ocoun602x"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerController.gd" id="1_s17gv"]
 [ext_resource type="Texture2D" uid="uid://djnsb8qmtvksp" path="res://Sprites/mc_sheet.png" id="2_o2fuc"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://Scripts/door.gd" id="13_g5f20"]
 [ext_resource type="Texture2D" uid="uid://cx4bmcrah2fcy" path="res://Sprites/door.png" id="14_jd4k2"]
 [ext_resource type="AudioStream" uid="uid://vw8o3aybbrwk" path="res://key_get.wav" id="15_xso0g"]
+[ext_resource type="Texture2D" uid="uid://cd5qfscfeiag1" path="res://Sprites/winscreen.png" id="16_30k50"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_57jt3"]
 atlas = ExtResource("2_o2fuc")
@@ -318,7 +319,6 @@ stream = ExtResource("15_xso0g")
 volume_db = -2.67
 
 [node name="WinScreen" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="TextureRect" type="TextureRect" parent="WinScreen"]
 texture_filter = 1
@@ -327,16 +327,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("9_krec2")
+texture = ExtResource("16_30k50")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="WinScreen/TextureRect"]
 layout_mode = 0
-offset_left = 113.0
-offset_top = 200.0
-offset_right = 1071.0
-offset_bottom = 323.0
+offset_left = 69.0
+offset_top = 246.0
+offset_right = 1027.0
+offset_bottom = 369.0
 theme_override_fonts/normal_font = ExtResource("9_rw4r3")
-theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/normal_font_size = 49
 bbcode_enabled = true
 text = "[center]Congratulations! 
 You escaped the ghost of your past.
@@ -344,16 +344,17 @@ You escaped the ghost of your past.
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="WinScreen/TextureRect"]
 layout_mode = 0
-offset_left = 395.0
-offset_top = 343.0
-offset_right = 814.0
-offset_bottom = 403.0
+offset_left = 326.0
+offset_top = 376.0
+offset_right = 889.0
+offset_bottom = 436.0
 pivot_offset = Vector2(414, 382)
+theme_override_fonts/normal_font = ExtResource("9_rw4r3")
 theme_override_fonts/italics_font = ExtResource("10_erlvk")
-theme_override_font_sizes/italics_font_size = 25
-theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/italics_font_size = 34
+theme_override_font_sizes/normal_font_size = 34
 bbcode_enabled = true
-text = "[i]Live in the present moment :)[i]"
+text = "Live in the present moment :)"
 
 [connection signal="area_entered" from="Player/Area2D" to="Player" method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="Player/Area2D" to="BadPlayer" method="_on_area_2d_area_entered"]
