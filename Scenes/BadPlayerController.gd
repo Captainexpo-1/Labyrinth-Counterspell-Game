@@ -30,3 +30,9 @@ func _process(delta: float) -> void:
 		else:
 			$GFX.stop()
 	pass
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	print("COLLISION")
+	if area.get_parent() == player_node:
+		player_node.kill(self)

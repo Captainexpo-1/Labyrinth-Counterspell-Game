@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cdj5ocoun602x"]
+[gd_scene load_steps=16 format=3 uid="uid://cdj5ocoun602x"]
 
 [ext_resource type="Script" path="res://Scenes/PlayerController.gd" id="1_s17gv"]
 [ext_resource type="Texture2D" uid="uid://djnsb8qmtvksp" path="res://Sprites/mc_sheet.png" id="2_o2fuc"]
@@ -37,7 +37,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ibls4"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rp4dj"]
+size = Vector2(16.9678, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t341h"]
+size = Vector2(16.2303, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8hyml"]
 atlas = ExtResource("4_q5db6")
@@ -71,11 +75,13 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_e2wdg"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wq4dr"]
+size = Vector2(15.6448, 19.0909)
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(250, 0)
 script = ExtResource("1_s17gv")
 metadata/alive = true
 metadata/moving = false
@@ -88,10 +94,20 @@ texture_filter = 1
 rotation = 1.5708
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_tvr4v")
-frame_progress = 0.543304
+frame_progress = 0.725624
+
+[node name="Area2D" type="Area2D" parent="Player"]
+scale = Vector2(5.24, 5.24)
+
+[node name="PlayerCollider" type="CollisionShape2D" parent="Player/Area2D"]
+position = Vector2(0.19084, 0)
+scale = Vector2(1.001, 1.001)
+shape = SubResource("RectangleShape2D_rp4dj")
 
 [node name="PlayerCollider" type="CollisionShape2D" parent="Player"]
-shape = SubResource("CircleShape2D_ibls4")
+position = Vector2(1.5, 0)
+scale = Vector2(4.621, 4.621)
+shape = SubResource("RectangleShape2D_t341h")
 
 [node name="BadPlayer" type="StaticBody2D" parent="."]
 script = ExtResource("3_o85bq")
@@ -105,4 +121,16 @@ sprite_frames = SubResource("SpriteFrames_sg7nn")
 speed_scale = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BadPlayer"]
-shape = SubResource("CircleShape2D_e2wdg")
+position = Vector2(1, -2.15)
+scale = Vector2(4.73, 4.73)
+shape = SubResource("RectangleShape2D_wq4dr")
+
+[node name="Area2D" type="Area2D" parent="BadPlayer"]
+scale = Vector2(5.24, 5.24)
+
+[node name="PlayerCollider" type="CollisionShape2D" parent="BadPlayer/Area2D"]
+position = Vector2(0.0954198, 0)
+scale = Vector2(1.001, 1.001)
+shape = SubResource("RectangleShape2D_rp4dj")
+
+[connection signal="area_entered" from="BadPlayer/Area2D" to="BadPlayer" method="_on_area_2d_area_entered"]
