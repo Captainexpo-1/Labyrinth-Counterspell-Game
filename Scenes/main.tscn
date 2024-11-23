@@ -191,27 +191,34 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 485.0
-offset_top = 362.0
-offset_right = -480.0
-offset_bottom = -204.0
-color = Color(0.160784, 0.121569, 0.235294, 1)
+offset_left = 471.0
+offset_top = 359.0
+offset_right = -494.0
+offset_bottom = -207.0
+color = Color(0.407843, 0.25098, 0.466667, 1)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Menu/ColorRect/ColorRect"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.042
-offset_left = 42.0
-offset_top = 18.0
-offset_right = 148.188
-offset_bottom = 78.0
+offset_left = 20.0
+offset_top = 7.0
+offset_right = 188.146
+offset_bottom = 77.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("9_rw4r3")
 theme_override_font_sizes/bold_italics_font_size = 60
-theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/normal_font_size = 60
 text = "Play"
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Menu/ColorRect/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+border_color = Color(0, 0.607896, 0.645592, 1)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Menu"]
 anchors_preset = 15
