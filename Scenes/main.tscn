@@ -1,9 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://cdj5ocoun602x"]
+[gd_scene load_steps=17 format=3 uid="uid://cdj5ocoun602x"]
 
 [ext_resource type="Script" path="res://Scenes/PlayerController.gd" id="1_s17gv"]
 [ext_resource type="Texture2D" uid="uid://djnsb8qmtvksp" path="res://Sprites/mc_sheet.png" id="2_o2fuc"]
 [ext_resource type="Script" path="res://Scenes/BadPlayerController.gd" id="3_o85bq"]
 [ext_resource type="Texture2D" uid="uid://bannrjgg0an6t" path="res://Sprites/enemy_sheet.png" id="4_q5db6"]
+[ext_resource type="AudioStream" path="res://Music/counterspell.wav" id="5_o4cia"]
+[ext_resource type="Script" path="res://Scenes/musicplayer.gd" id="6_hjifv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_57jt3"]
 atlas = ExtResource("2_o2fuc")
@@ -134,3 +136,12 @@ scale = Vector2(1.001, 1.001)
 shape = SubResource("RectangleShape2D_rp4dj")
 
 [connection signal="area_entered" from="BadPlayer/Area2D" to="BadPlayer" method="_on_area_2d_area_entered"]
+shape = SubResource("CircleShape2D_e2wdg")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_o4cia")
+autoplay = true
+script = ExtResource("6_hjifv")
+
+[connection signal="finished" from="AudioStreamPlayer2D" to="AudioStreamPlayer2D" method="_on_finished"]
+
