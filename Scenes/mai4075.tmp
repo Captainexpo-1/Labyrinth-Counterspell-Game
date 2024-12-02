@@ -1,10 +1,9 @@
-[gd_scene load_steps=41 format=4 uid="uid://cdj5ocoun602x"]
+[gd_scene load_steps=38 format=4 uid="uid://cdj5ocoun602x"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerController.gd" id="1_s17gv"]
 [ext_resource type="Texture2D" uid="uid://djnsb8qmtvksp" path="res://Sprites/mc_sheet.png" id="2_o2fuc"]
 [ext_resource type="Script" path="res://Scripts/BadPlayerController.gd" id="3_o85bq"]
 [ext_resource type="Texture2D" uid="uid://bannrjgg0an6t" path="res://Sprites/enemy_sheet.png" id="4_q5db6"]
-[ext_resource type="Script" path="res://Scenes/exit_start.gd" id="5_lhaja"]
 [ext_resource type="AudioStream" uid="uid://u20qj2wuwuqe" path="res://Music/counterspell.wav" id="5_x4aj4"]
 [ext_resource type="Script" path="res://Scripts/music.gd" id="6_tk0lp"]
 [ext_resource type="Texture2D" uid="uid://bdqt1h0l75x4r" path="res://Sprites/walltile.png" id="7_5sg7l"]
@@ -19,7 +18,6 @@
 [ext_resource type="AudioStream" uid="uid://vw8o3aybbrwk" path="res://key_get.wav" id="15_xso0g"]
 [ext_resource type="Texture2D" uid="uid://cd5qfscfeiag1" path="res://Sprites/winscreen.png" id="16_30k50"]
 [ext_resource type="Script" path="res://Scenes/WinScreen.gd" id="16_xjyc6"]
-[ext_resource type="Script" path="res://Scenes/exit.gd" id="20_yptmg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_57jt3"]
 atlas = ExtResource("2_o2fuc")
@@ -141,9 +139,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cst30"]
-size = Vector2(6, 3)
-
 [node name="Node2D" type="Node2D"]
 
 [node name="Player" type="CharacterBody2D" parent="."]
@@ -179,6 +174,7 @@ shape = SubResource("CircleShape2D_dloer")
 zoom = Vector2(8.96, 8.96)
 
 [node name="BadPlayer" type="StaticBody2D" parent="."]
+modulate = Color(1, 1, 1, 0.886275)
 position = Vector2(101, 242)
 script = ExtResource("3_o85bq")
 metadata/Player = NodePath("../Player")
@@ -197,8 +193,6 @@ shape = SubResource("CircleShape2D_1hyn4")
 
 [node name="Area2D" type="Area2D" parent="BadPlayer"]
 scale = Vector2(5.24, 5.24)
-monitoring = false
-script = ExtResource("5_lhaja")
 
 [node name="PlayerCollider" type="CollisionShape2D" parent="BadPlayer/Area2D"]
 position = Vector2(-5.96046e-08, 0)
@@ -424,14 +418,6 @@ text = "Live in the present moment :)"
 wait_time = 5.0
 one_shot = true
 
-[node name="ExitTrigger" type="Area2D" parent="."]
-position = Vector2(100, 196)
-script = ExtResource("20_yptmg")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitTrigger"]
-position = Vector2(0, -2.5)
-shape = SubResource("RectangleShape2D_cst30")
-
 [connection signal="area_entered" from="Player/Area2D" to="Player" method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="Player/Area2D" to="BadPlayer" method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="BadPlayer/Area2D" to="BadPlayer" method="_on_area_2d_area_entered"]
@@ -439,4 +425,3 @@ shape = SubResource("RectangleShape2D_cst30")
 [connection signal="gui_input" from="Menu/ColorRect/ColorRect" to="Menu" method="_on_color_rect_gui_input"]
 [connection signal="gui_input" from="Menu/ColorRect/ColorRect2" to="Menu" method="_on_color_rect_gui_input"]
 [connection signal="timeout" from="WinScreen/Timer" to="WinScreen" method="_on_timer_timeout"]
-[connection signal="area_entered" from="ExitTrigger" to="ExitTrigger" method="_on_area_entered"]
